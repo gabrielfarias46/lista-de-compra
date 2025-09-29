@@ -1,57 +1,58 @@
-// Cria título
+//cria uma div "conteiner" e adicionar ao body
+const conteiner = document.createElement('div');
+conteiner.id = 'lista-conteiner';
+document.body.appendChild(conteiner);
+
+//=====Estilos direto no js =====
+conteiner.style.backgroundColor = '#f9f9f9'; //cor de fundo 
+conteiner.style.border = '2px solid #ccc'; //borda
+conteiner.style.borderRadius = '10px'; //cantos arredondados
+conteiner.style.padding = '20px'; //espaçamento interno
+conteiner.style.maxWidth = '400px'; //largura maxima
+conteiner.style.margin = '20px auto'; //centralizar horizontalmente
+conteiner.style.boxShadow = '0 4px 8px rgba(0,0,0,0.1)'; //sombra
+
+
+//cria o titulo
 const titulo = document.createElement('h1');
 titulo.textContent = 'Lista de Compras';
+titulo.style.textAlign = 'center';//exemplo de estilo no titulo
+conteiner.appendChild(titulo);
 
-// Cria container e adiciona ao body
-const container = document.createElement('div');
-container.id = 'lista-container';
-container.appendChild(titulo);
 
-// Cria input de texto
 const inputItem = document.createElement('input');
 inputItem.type = 'text';
-inputItem.placeholder = 'Digite um item';
-container.appendChild(inputItem);
+inputItem.placeholder = ' Digite um item';
+conteiner.appendChild(inputItem);
 
-// Cria botão de adicionar
 const btnAdd = document.createElement('button');
 btnAdd.textContent = 'Adicionar';
-container.appendChild(btnAdd);
+conteiner.appendChild(btnAdd);
 
-// Cria lista
 const lista = document.createElement('ul');
-container.appendChild(lista);
+conteiner.appendChild(lista);
 
-// Adiciona container ao body
-document.body.appendChild(container);
 
-// Função para adicionar item
 function adicionarItem() {
-    const valor = inputItem.value.trim();
+    const valor =  inputItem.value.trim();
     if (valor !== '') {
         const li = document.createElement('li');
-        li.textContent = valor;
+        li.textContent= valor;
         lista.appendChild(li);
-        inputItem.value = '';  // Limpa o campo de entrada
-        inputItem.focus();     // Volta o foco para o campo
+        inputItem.value = '';
+        inputItem.focus(); // volta o foco para o campo
     }
-}
+};
 
-// Evento do botão
 btnAdd.addEventListener('click', adicionarItem);
 
-// Evento para tecla Enter no input
-inputItem.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter') {
+inputItem.addEventListener('keydown', (event) =>{
+    if (event.key === 'Enter'){
         adicionarItem();
     }
 });
 
-// Estilos direto no JS
-container.style.backgroundColor = '#f9f9f9';  // Cor de fundo
-container.style.border = '2px solid #ccc';    // Borda
-container.style.borderRadius = '10px';        // Cantos arredondados
-container.style.padding = '20px';             // Espaçamento interno
-container.style.maxWidth = '400px';           // Largura máxima
-container.style.margin = '20px auto';         // Centraliza horizontalmente
-container.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)'; // Sombra
+
+document.body.style.backgroundColor = 'blue';
+document.body.style.textAlign = 'center';
+document.body.style.alignItems = 'center';
